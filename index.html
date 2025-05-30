@@ -3,151 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Investor Company - Contact</title>
+  <title>Investor Company - Contact Us</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #1c92d2, #f2fcfe);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
     }
-
-    .container {
-      background: white;
-      width: 90%;
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       max-width: 500px;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      margin: auto;
     }
-
-    h2 {
-      text-align: center;
-      color: #0066cc;
-      margin-bottom: 20px;
-    }
-
     input, textarea {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
     }
-
     button {
-      width: 100%;
-      padding: 12px;
-      background-color: #0066cc;
+      background-color: #2e86de;
       color: white;
-      font-weight: bold;
+      padding: 10px 15px;
       border: none;
-      border-radius: 8px;
+      border-radius: 5px;
       cursor: pointer;
     }
-
-    button:hover {
-      background-color: #004999;
-    }
-
-    .popup, .overlay {
+    .thank-you {
       display: none;
-      position: fixed;
-      z-index: 1000;
-    }
-
-    .popup {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
       text-align: center;
-    }
-
-    .overlay {
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
-    }
-
-    .popup h3 {
-      color: #155724;
-      margin-bottom: 10px;
-    }
-
-    .popup p {
-      color: #333;
+      font-size: 18px;
+      color: green;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Contact Investor Company</h2>
-    <form id="investForm" action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST" onsubmit="return handleSubmit(event)">
-      <!-- Anti-spam -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none">
+  <h2>Contact Investor Company</h2>
+  <form id="contact-form" action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    
+    <input type="email" name="email" placeholder="Your Email" required />
+    
+    <input type="tel" name="phone" placeholder="Your Phone Number (optional)" />
+    
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
-      <!-- No redirect -->
-      <input type="hidden" name="_next" value="">
+    <!-- Auto-reply message -->
+    <input type="hidden" name="_autoresponse" value="Thank you for contacting Investor Company. We will get back to you within 2 to 5 working days. Thank you for the time you invested to complete this form. Our team hopes to assist you soon.">
 
-      <!-- Name -->
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required>
+    <!-- Redirect to same page to show thank-you -->
+    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+    
+    <!-- Disable CAPTCHA -->
+    <input type="hidden" name="_captcha" value="false">
 
-      <!-- Email -->
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    <button type="submit">Submit</button>
+  </form>
 
-      <!-- Message -->
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <!-- Popup -->
-  <div class="overlay" id="overlay"></div>
-  <div class="popup" id="popup">
-    <h3>✅ Thank You, <span id="userName"></span>!</h3>
-    <p>Your message has been sent. We’ll get back to you within 2–5 working days.</p>
+  <div class="thank-you" id="thank-you-message">
+    ✅ Thank you for contacting Investor Company. We’ll get back to you within 2 to 5 working days.
+    <br/> We appreciate the time you invested in filling this form.
   </div>
 
   <script>
-    function handleSubmit(event) {
-      event.preventDefault(); // Stop default form
+    const form = document.getElementById("contact-form");
+    const thankYou = document.getElementById("thank-you-message");
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-
-      if (!name || !email) {
-        alert("Please enter both name and email.");
-        return false;
+    form.addEventListener("submit", function (e) {
+      const email = form.querySelector("input[name='email']").value;
+      if (!email) {
+        alert("Email is required to receive a response.");
+        e.preventDefault();
+      } else {
+        form.style.display = "none";
+        thankYou.style.display = "block";
       }
-
-      // Show popup
-      document.getElementById('userName').innerText = name;
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('popup').style.display = 'block';
-
-      // Submit after a short delay
-      setTimeout(() => {
-        document.getElementById('investForm').submit();
-      }, 1200);
-
-      return false;
-    }
+    });
   </script>
-
 </body>
 </html>
