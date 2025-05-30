@@ -47,7 +47,7 @@
 
   <h1>Grow Your Wealth with Us</h1>
   <p style="text-align:center;">
-    Choose from High, Medium, or Low investment plans. Share your interests and start your journey to financial growth.
+    Choose the right investment level and plan. Let us help you build a secure financial future.
   </p>
 
   <form action="https://formsubmit.co/investorcompany001@gmail.com" method="POST">
@@ -58,22 +58,35 @@
     <label for="age">Age</label>
     <input type="number" name="Age" id="age" min="18" max="100" required>
 
+    <label for="salary">Monthly Salary (in USD)</label>
+    <input type="number" name="Monthly Salary" id="salary" min="0" required>
+
     <label for="email">Email <span style="color:red">*</span></label>
     <input type="email" name="Email" id="email" required>
 
     <label for="phone">Phone Number</label>
     <input type="tel" name="Phone" id="phone">
 
-    <label for="investment">Investment Level</label>
-    <select name="Investment Level" id="investment" required>
-      <option value="" disabled selected>Select your option</option>
+    <label for="investment-level">Investment Level</label>
+    <select name="Investment Level" id="investment-level" required>
+      <option value="" disabled selected>Select level</option>
       <option value="High">High</option>
       <option value="Medium">Medium</option>
       <option value="Low">Low</option>
     </select>
 
-    <label for="interest">What would you like to invest in?</label>
-    <textarea name="User Interest" id="interest" rows="4" placeholder="Stocks, crypto, real estate, etc."></textarea>
+    <label for="plan">Which plan do you want to invest in?</label>
+    <select name="Investment Plan" id="plan" required>
+      <option value="" disabled selected>Select a plan</option>
+      <option value="Retirement Fund">Retirement Fund</option>
+      <option value="Crypto Growth Plan">Crypto Growth Plan</option>
+      <option value="Real Estate Portfolio">Real Estate Portfolio</option>
+      <option value="Mutual Funds">Mutual Funds</option>
+      <option value="Custom Strategy">Custom Strategy</option>
+    </select>
+
+    <label for="interest">Additional Comments or Interests</label>
+    <textarea name="User Interest" id="interest" rows="4" placeholder="e.g. I'm interested in low-risk long-term investments..."></textarea>
 
     <!-- Optional: Disable CAPTCHA -->
     <input type="hidden" name="_captcha" value="false">
