@@ -3,80 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Invest with Us</title>
+  <title>Investor Company Form</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 2rem;
+      background-color: #f2f4f8;
+      padding: 20px;
       max-width: 600px;
       margin: auto;
-      background-color: #f5f7fa;
     }
+
     h1 {
       text-align: center;
+      color: #333;
     }
+
     form {
-      background: white;
-      padding: 2rem;
+      background: #fff;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     label {
+      margin-top: 15px;
       display: block;
-      margin: 1rem 0 0.2rem;
+      font-weight: bold;
     }
+
     input, select, textarea {
       width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 5px;
       border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
     }
+
     button {
-      margin-top: 1.5rem;
+      margin-top: 20px;
       width: 100%;
-      padding: 0.7rem;
+      padding: 12px;
       background-color: #007bff;
       color: white;
       border: none;
       border-radius: 6px;
-      font-size: 1rem;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .required {
+      color: red;
     }
   </style>
 </head>
 <body>
 
-  <h1>Grow Your Wealth with Us</h1>
-  <p style="text-align:center;">
-    Choose the right investment level and plan. Let us help you build a secure financial future.
-  </p>
+  <h1>Invest with The Investor Company</h1>
 
   <form action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
+    
+    <label for="name">Full Name <span class="required">*</span></label>
+    <input type="text" id="name" name="Name" required>
 
-    <label for="name">Full Name</label>
-    <input type="text" name="Name" id="name" required>
+    <label for="age">Age <span class="required">*</span></label>
+    <input type="number" id="age" name="Age" min="18" required>
 
-    <label for="age">Age</label>
-    <input type="number" name="Age" id="age" min="18" max="100" required>
+    <label for="salary">Monthly Salary (USD) <span class="required">*</span></label>
+    <input type="number" id="salary" name="Monthly Salary" required>
 
-    <label for="salary">Monthly Salary (in USD)</label>
-    <input type="number" name="Monthly Salary" id="salary" min="0" required>
-
-    <label for="email">Email <span style="color:red">*</span></label>
-    <input type="email" name="Email" id="email" required>
+    <label for="email">Email <span class="required">*</span></label>
+    <input type="email" id="email" name="Email" required>
 
     <label for="phone">Phone Number</label>
-    <input type="tel" name="Phone" id="phone">
+    <input type="tel" id="phone" name="Phone">
 
-    <label for="investment-level">Investment Level</label>
-    <select name="Investment Level" id="investment-level" required>
+    <label for="level">Investment Level <span class="required">*</span></label>
+    <select id="level" name="Investment Level" required>
       <option value="" disabled selected>Select level</option>
       <option value="High">High</option>
       <option value="Medium">Medium</option>
       <option value="Low">Low</option>
     </select>
 
-    <label for="plan">Which plan do you want to invest in?</label>
-    <select name="Investment Plan" id="plan" required>
+    <label for="plan">Which Plan Do You Want to Invest In? <span class="required">*</span></label>
+    <select id="plan" name="Investment Plan" required>
       <option value="" disabled selected>Select a plan</option>
       <option value="Retirement Fund">Retirement Fund</option>
       <option value="Crypto Growth Plan">Crypto Growth Plan</option>
@@ -85,12 +100,13 @@
       <option value="Custom Strategy">Custom Strategy</option>
     </select>
 
-    <label for="interest">Additional Comments or Interests</label>
-    <textarea name="User Interest" id="interest" rows="4" placeholder="e.g. I'm interested in low-risk long-term investments..."></textarea>
+    <label for="interest">Additional Comments or Investment Interests</label>
+    <textarea id="interest" name="User Interest" rows="4" placeholder="e.g. I prefer low-risk options..."></textarea>
 
+    <!-- Disable CAPTCHA -->
     <input type="hidden" name="_captcha" value="false">
-    
-    <!-- Optional: Redirect after submit -->
+
+    <!-- Optional redirect after form submit -->
     <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
 
     <button type="submit">Submit</button>
