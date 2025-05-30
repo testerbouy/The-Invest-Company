@@ -6,7 +6,7 @@
   <title>Investor Company - Contact</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #1c92d2, #f2fcfe);
       margin: 0;
       padding: 0;
@@ -18,17 +18,11 @@
 
     .container {
       background: white;
-      max-width: 500px;
       width: 90%;
+      max-width: 500px;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
@@ -44,12 +38,6 @@
       border: 1px solid #ccc;
       border-radius: 8px;
       box-sizing: border-box;
-      transition: 0.3s;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #0066cc;
-      outline: none;
     }
 
     button {
@@ -61,16 +49,19 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
     }
 
     button:hover {
       background-color: #004999;
     }
 
-    .popup {
+    .popup, .overlay {
       display: none;
       position: fixed;
+      z-index: 1000;
+    }
+
+    .popup {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -78,8 +69,13 @@
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      z-index: 999;
       text-align: center;
+    }
+
+    .overlay {
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
     }
 
     .popup h3 {
@@ -90,22 +86,13 @@
     .popup p {
       color: #333;
     }
-
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
-      z-index: 998;
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h2>Contact Investor Company</h2>
-    <form id="investForm" action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST" onsubmit="return validateForm(event)">
+    <form id="investForm" action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST" onsubmit="return handleSubmit(event)">
       <!-- Anti-spam -->
       <input type="hidden" name="_captcha" value="false">
       <input type="text" name="_honey" style="display:none">
@@ -137,18 +124,18 @@
   </div>
 
   <script>
-    function validateForm(event) {
-      event.preventDefault(); // Stop form from submitting immediately
+    function handleSubmit(event) {
+      event.preventDefault(); // Stop default form
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
 
       if (!name || !email) {
-        alert("❗ Please fill in your name and email.");
+        alert("Please enter both name and email.");
         return false;
       }
 
-      // Show thank-you popup
+      // Show popup
       document.getElementById('userName').innerText = name;
       document.getElementById('overlay').style.display = 'block';
       document.getElementById('popup').style.display = 'block';
@@ -156,7 +143,7 @@
       // Submit after a short delay
       setTimeout(() => {
         document.getElementById('investForm').submit();
-      }, 1000);
+      }, 1200);
 
       return false;
     }
