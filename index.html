@@ -1,0 +1,43 @@
+    <div id="result" style="margin-top:1rem;"></div>
+  </div>
+
+  <div class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email us at: <a href="mailto:help@investsmart.com">help@investsmart.com</a></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 InvestSmart. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showPlan(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const income = document.getElementById('income').value;
+      const risk = document.getElementById('risk').value;
+
+      let suggestion = '';
+      if (risk === 'low') {
+        suggestion = 'You should consider Fixed Deposits, PPF, and Blue Chip Mutual Funds.';
+      } else if (risk === 'medium') {
+        suggestion = 'You can invest in Index Funds, Balanced Mutual Funds, and Gold.';
+      } else {
+        suggestion = 'Consider Stocks, Real Estate, and Cryptocurrency (with caution).';
+      }
+
+      document.getElementById('result').innerHTML = `
+        <h3>Hi ${name}!</h3>
+        <p>Based on your profile:</p>
+        <ul>
+          <li>Age: ${age}</li>
+          <li>Monthly Income: ₹${income}</li>
+          <li>Risk Preference: ${risk.charAt(0).toUpperCase() + risk.slice(1)}</li>
+        </ul>
+        <p><strong>Investment Suggestion:</strong> ${suggestion}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
