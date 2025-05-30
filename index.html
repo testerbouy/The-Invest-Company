@@ -92,7 +92,11 @@
 
   <div class="form-wrapper">
     <h1>The Investor Company</h1>
-    <form action="YOUR_FORMSPREE_LINK_HERE" method="POST">
+    <form action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
+      <!-- Hidden fields -->
+      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+      <input type="hidden" name="_captcha" value="false">
+
       <div>
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -100,7 +104,7 @@
 
       <div>
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="_replyto" placeholder="your@email.com" required>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
       </div>
 
       <div>
