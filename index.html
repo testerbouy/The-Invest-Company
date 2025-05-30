@@ -1,9 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InvestSmart - Plan Your Future</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: #003060;
+      padding: 0.5rem 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background: white;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    form input, form select {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    footer {
+      background: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>InvestSmart</h1>
+    <p>Plan your investments for a better future</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#plan">Plan Investment</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container" id="home">
+    <h2>Welcome to InvestSmart</h2>
+    <p>We help you plan your investments based on your income, age, and risk profile.</p>
+    <button onclick="document.getElementById('plan').scrollIntoView()">Start Planning</button>
+  </div>
+
+  <div class="container" id="plan">
+    <h2>Investment Planner</h2>
+    <form onsubmit="return showPlan(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="number" id="age" placeholder="Your Age" required />
+      <input type="number" id="income" placeholder="Monthly Income" required />
+      <select id="risk">
+        <option value="low">Low Risk</option>
+        <option value="medium">Medium Risk</option>
+        <option value="high">High Risk</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
     <div id="result" style="margin-top:1rem;"></div>
   </div>
 
   <div class="container" id="contact">
     <h2>Contact Us</h2>
-    <p>Email us at: <a href="mailto:help@investsmart.com">help@investsmart.com</a></p>
+    <p>Email us at: <a href="mailto:theinvestorcompany@gmail.com">theinvestorcompany@gmail.com</a></p>
   </div>
 
   <footer>
