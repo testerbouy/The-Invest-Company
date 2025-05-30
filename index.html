@@ -1,136 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Investor Company</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invest with Us</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
       margin: 0;
       padding: 0;
     }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f4f7fa;
-      color: #333;
-      line-height: 1.6;
-      padding: 40px 20px;
+    .container {
+      max-width: 500px;
+      background: #fff;
+      margin: 80px auto;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
     }
-
-    .form-wrapper {
-      max-width: 600px;
-      margin: auto;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      padding: 40px 30px;
-    }
-
-    h1 {
+    h2 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-      font-weight: 700;
-      color: #1c1c1c;
+      color: #333;
     }
-
     form {
-      display: grid;
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
     }
-
-    label {
-      font-weight: 600;
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      padding: 10px;
+      margin: 10px 0;
       border: 1px solid #ccc;
-      border-radius: 8px;
-      transition: border 0.3s;
+      border-radius: 4px;
     }
-
-    input:focus,
-    select:focus {
-      border-color: #007bff;
-      outline: none;
-    }
-
     button {
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: 600;
-      background-color: #007bff;
-      color: #fff;
+      padding: 12px;
+      background: #007bff;
+      color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
-
     button:hover {
-      background-color: #0056b3;
-    }
-
-    @media (max-width: 600px) {
-      .form-wrapper {
-        padding: 30px 20px;
-      }
+      background: #0056b3;
     }
   </style>
 </head>
 <body>
 
-  <div class="form-wrapper">
-    <h1>The Investor Company</h1>
-    <form action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
-      <!-- Hidden fields -->
-      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-      <input type="hidden" name="_captcha" value="false">
+<div class="container">
+  <h2>Start Investing with Us</h2>
+  <form action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST" onsubmit="return validateForm()">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" id="email" placeholder="Your Email Address" required>
+    <input type="tel" name="phone" placeholder="Phone Number (Optional)">
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
-      <div>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required>
-      </div>
-
-      <div>
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-      </div>
-
-      <div>
-        <label for="age">Age</label>
-        <input type="number" id="age" name="age" placeholder="Your age" min="18" required>
-      </div>
-
-      <div>
-        <label for="salary">Monthly Salary (₹)</label>
-        <input type="number" id="salary" name="monthly_salary" placeholder="e.g. 30000" required>
-      </div>
-
-      <div>
-        <label for="stock">Stock Preference</label>
-        <select id="stock" name="stock_option" required>
-          <option value="">Choose an option</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-          <option value="all">All</option>
-        </select>
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+<script>
+  function validateForm() {
+    var email = document.getElementById("email").value;
+    if (email.trim() === "") {
+      alert("Please enter your email address.");
+      return false;
+    }
+    return true;
+  }
+</script>
 
 </body>
 </html>
