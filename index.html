@@ -1,77 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Investor Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+      padding: 40px 20px;
     }
-    .container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 500px;
+
+    .form-wrapper {
+      max-width: 600px;
       margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      padding: 40px 30px;
     }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1c1c1c;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
     label {
+      font-weight: 600;
+      margin-bottom: 6px;
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
     }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      margin-top: 20px;
+
+    input,
+    select {
       width: 100%;
       padding: 12px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
       font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border 0.3s;
     }
+
+    input:focus,
+    select:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
     button:hover {
       background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .form-wrapper {
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>The Investor Company Form</h2>
+
+  <div class="form-wrapper">
+    <h1>The Investor Company</h1>
     <form action="YOUR_FORMSPREE_LINK_HERE" method="POST">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="_replyto" required>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="_replyto" placeholder="your@email.com" required>
+      </div>
 
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age" required>
+      <div>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Your age" min="18" required>
+      </div>
 
-      <label for="salary">Monthly Salary (in ₹)</label>
-      <input type="number" id="salary" name="monthly_salary" required>
+      <div>
+        <label for="salary">Monthly Salary (₹)</label>
+        <input type="number" id="salary" name="monthly_salary" placeholder="e.g. 30000" required>
+      </div>
 
-      <label for="stock">Stock Option</label>
-      <select id="stock" name="stock_option" required>
-        <option value="">Select</option>
-        <option value="high">High</option>
-        <option value="medium">Medium</option>
-        <option value="low">Low</option>
-        <option value="all">All</option>
-      </select>
+      <div>
+        <label for="stock">Stock Preference</label>
+        <select id="stock" name="stock_option" required>
+          <option value="">Choose an option</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+          <option value="all">All</option>
+        </select>
+      </div>
 
       <button type="submit">Submit</button>
     </form>
   </div>
+
 </body>
 </html>
