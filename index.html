@@ -92,8 +92,8 @@
     <!-- ✅ Form Starts -->
     <form id="investForm" action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
       <input type="text" name="Name" placeholder="Your Full Name" required />
-      <input type="email" name="Email" placeholder="Your Email Address (required to receive reply)" required />
-      <input type="tel" name="Phone" placeholder="Phone Number (optional)" />
+      <input type="email" name="Email" id="emailField" placeholder="Your Email Address (required to receive reply)" required />
+      <input type="tel" name="Phone" placeholder="Phone Number" />
       <input type="number" name="Age" placeholder="Your Age" required />
       <input type="number" name="Income" placeholder="Monthly Income (₹)" required />
 
@@ -107,7 +107,6 @@
 
       <!-- Hidden Settings -->
       <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html" />
       <input type="text" name="_honey" style="display:none" />
 
       <button type="submit">Submit</button>
@@ -124,13 +123,21 @@
     &copy; 2025 InvestSmart. All rights reserved.
   </footer>
 
-  <!-- ✅ JavaScript for Thank You Message -->
+  <!-- ✅ JavaScript for Validation & Thank You -->
   <script>
     const form = document.getElementById("investForm");
     const thankYouMessage = document.getElementById("thankYouMessage");
+    const emailField = document.getElementById("emailField");
 
     form.addEventListener("submit", function (e) {
+      if (emailField.value.trim() === "") {
+        alert("Please enter your email to receive a response.");
+        e.preventDefault(); // Stop form submission
+        return;
+      }
+
       e.preventDefault(); // prevent normal redirect
+
       const formData = new FormData(form);
 
       fetch(form.action, {
